@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background-size: cover;
+}
+
+.wrapper-main {
+  width: 97%;
+  height: 100vh;
+  display: flex;
+}
+
+.header {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.controls-container {
+  display: flex;
+}
+
+.lang-container {
+  margin-left: 20px;
+  display: flex;
+}
+
+.search-container {
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  color: #827717;
+  border: 0;
+  outline: 0;
+  border-radius: 50%;
+  background-color: #e6ee9c;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.7;
+}
+
+.btn.active,
+.btn.active:hover {
+  color: #e6ee9c;
+  background-color: #1b5e20;
+  opacity: 1;
+}
+
+input[type="text"] {
+  width: 280px;
+  height: 32px;
+  padding-left: 15px;
+  border-radius: 18px 0 0 18px;
+  border: 0;
+  outline: 0;
+}
+
+.search-btn {
+  margin-left: 0;
+  border-radius: 0 50% 50% 0;
+}
