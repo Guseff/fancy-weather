@@ -5,9 +5,10 @@ import createControls from './controls/controls';
 import createSearch from './controls/search';
 import { refreshMainBkg } from './logic/background';
 import { getPlace } from './logic/get-place';
-import { setStorage } from './storage';
+import { getStorage, setStorage } from './storage';
 import { changeDegrees } from './controls/degrees';
 import { changeLang } from './controls/lang';
+import { requestWeather } from './request';;
 
 const wrapper = createWrapper();
 document.body.appendChild(wrapper);
@@ -21,10 +22,8 @@ const controls = createControls();
 header.append(search, controls);
 
 refreshMainBkg();
-getPlace().then((data) => {
-    console.log('CITY: ', data.city)
-  }
-);
+
+requestWeather('en');
 
 document.addEventListener('click', e => {
   switch (e.target.id) {

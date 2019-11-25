@@ -10,6 +10,7 @@ body {
   width: 97%;
   height: 100vh;
   display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -73,4 +74,13 @@ input[type="text"] {
 .search-btn {
   margin-left: 0;
   border-radius: 0 50% 50% 0;
+}
+
+.main {
+  width: 100%;
+  color: whitesmoke;
+}
+
+.today {
+  font-size: 100px;
 }
