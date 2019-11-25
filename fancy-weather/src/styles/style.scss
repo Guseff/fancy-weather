@@ -4,6 +4,7 @@ body {
   display: flex;
   justify-content: center;
   background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .wrapper-main {
@@ -76,11 +77,38 @@ input[type="text"] {
   border-radius: 0 50% 50% 0;
 }
 
-.main {
+.city {
   width: 100%;
+  height: 160px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
   color: whitesmoke;
 }
 
-.today {
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: whitesmoke;
+}
+
+.today-container {
+  width: 50%;
+  display: flex;
+}
+
+.today-container-left {
+  width: 50%;
+}
+
+.today-container-right {
+  width: 50%;
+}
+
+.today-temp {
   font-size: 100px;
 }

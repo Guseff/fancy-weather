@@ -1,14 +1,13 @@
-import createLang from './lang';
-import createDegrees from './degrees';
-import createBkg from './bkg';
+import createDiv from '../div';
+import createToday from './today';
 
 const createWeather = () => {
-  const weather = document.createElement('div');
-  weather.classList.add('weather-container');
+  const today = createToday();
+  const weather = createDiv('main');
 
-  weather.append();
+  weather.append(today);
 
   return weather;
-} 
+}
 
 export default createWeather;

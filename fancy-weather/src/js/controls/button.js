@@ -4,7 +4,7 @@ const createButton = (name, id, btnClass) => {
   button.classList.add(btnClass);
   button.setAttribute('id', id);
   button.innerHTML = name;
-
+  
   return button;
 }
 

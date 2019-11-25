@@ -8,27 +8,32 @@ import { getPlace } from './logic/get-place';
 import { getStorage, setStorage } from './storage';
 import { changeDegrees } from './controls/degrees';
 import { changeLang } from './controls/lang';
-import { requestWeather } from './request';;
+import { requestWeather } from './request';
+import createWeather from './weather/weather';
+import createCity from './city/city';
+
 
 const wrapper = createWrapper();
 document.body.appendChild(wrapper);
 
 const header = createHeader();
-wrapper.appendChild(header);
-
 const search = createSearch();
-
 const controls = createControls();
 header.append(search, controls);
 
-refreshMainBkg();
+export const city = createCity();
+const weather = createWeather();
+
+wrapper.append(header, city, weather);
+
+refreshMainBkg('rain');
 
 requestWeather('en');
 
 document.addEventListener('click', e => {
   switch (e.target.id) {
     case 're-btn':
-      refreshMainBkg('autumn');     
+      refreshMainBkg('Minsk');     
       break;
     case 'c-btn':
       setStorage('degrees', 'c');
