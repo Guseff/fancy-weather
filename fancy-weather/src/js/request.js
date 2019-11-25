@@ -14,7 +14,7 @@ export const requestWeather = async (lang, city) => {
     
     const weather = await fetch(weatherUrl);
     const weatherData = await weather.json();
-
+    console.log(weatherData);
     setWeather(weatherData.list[0], 'c');
 
   } catch (err) {

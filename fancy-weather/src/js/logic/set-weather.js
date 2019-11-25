@@ -1,7 +1,6 @@
 import { nowWeather } from '../weather/today';
 
 const setWeather = (obj, degrees) => {
-  console.log(obj);
   const val = degrees === 'c' ? '°C' : '°F';
   const tt = Math.round(obj.main.temp);
   nowWeather.todayTemp.innerText = `${tt}°`;
