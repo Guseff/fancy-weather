@@ -1,27 +1,20 @@
 import createDiv from '../div';
 
-export const [
-  todayTemp,
-  todaySummary,
-  todayApparent,
-  todayWind,
-  todayHumidity,
-  todayIcon
-] = [
-  createDiv('today-temp'),
-  createDiv('today-summary'),
-  createDiv('today-apparent'),
-  createDiv('today-wind'),
-  createDiv('today-humidity'),
-  document.createElement('img')
-]
-todayIcon.classList.add('today-icon');
+export const nowWeather = {
+  todayTemp: createDiv('today-temp'),
+  todaySummary: createDiv('today-summary'),
+  todayApparent: createDiv('today-summary'),
+  todayWind: createDiv('today-summary'),
+  todayHumidity: createDiv('today-summary'),
+  todayIcon: document.createElement('img')
+}
+nowWeather.todayIcon.classList.add('today-icon');
 
 const createToday = () => {
   const todayLeft =  createDiv('today-container-left');
-  todayLeft.append(todayTemp);
+  todayLeft.append(nowWeather.todayTemp);
   const todayRight = createDiv('today-container-right');
-  todayRight.append(todayIcon, todaySummary, todayApparent, todayWind, todayHumidity,);
+  todayRight.append(nowWeather.todayIcon, nowWeather.todaySummary, nowWeather.todayApparent, nowWeather.todayWind, nowWeather.todayHumidity,);
   const today = createDiv('today-container');
   today.append(todayLeft, todayRight);
 

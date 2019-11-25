@@ -11,7 +11,8 @@ import { changeLang } from './controls/lang';
 import { requestWeather } from './request';
 import createWeather from './weather/weather';
 import createCity from './city/city';
-
+import createDateTime from './city/date-time';
+import setTime from './logic/time';
 
 const wrapper = createWrapper();
 document.body.appendChild(wrapper);
@@ -22,9 +23,11 @@ const controls = createControls();
 header.append(search, controls);
 
 export const city = createCity();
+export const dateTime = createDateTime();
+setTime();
 const weather = createWeather();
 
-wrapper.append(header, city, weather);
+wrapper.append(header, city, dateTime, weather);
 
 refreshMainBkg('rain');
 
@@ -59,3 +62,5 @@ document.addEventListener('click', e => {
       break;
   }
 });
+
+setInterval(setTime, 10000);
