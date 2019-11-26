@@ -14,6 +14,8 @@ import createCity from './city/city';
 import createDateTime from './city/date-time';
 import setTime from './logic/time';
 
+export let timeZone;
+
 const wrapper = createWrapper();
 document.body.appendChild(wrapper);
 

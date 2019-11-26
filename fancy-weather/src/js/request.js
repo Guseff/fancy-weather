@@ -1,6 +1,8 @@
 import setCity from './logic/set-city';
 import setWeather from './logic/set-weather';
 
+export let timeZone;
+
 export const requestWeather = async (lang, city) => {
   try {
     const ipUrl = `http://ipinfo.io?token=f37edba9afa8ce`;
@@ -15,6 +17,8 @@ export const requestWeather = async (lang, city) => {
     const weather = await fetch(weatherUrl);
     const weatherData = await weather.json();
     console.log(weatherData);
+
+    timeZone = weatherData.city.timezone;
     setWeather(weatherData.list[0], 'c');
 
   } catch (err) {

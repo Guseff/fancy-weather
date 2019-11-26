@@ -1,13 +1,16 @@
 import { WEEK, YEAR } from '../constants/dates';
+import { timeZone } from '../request';
 import { dateTime } from '../index';
 
 const setTime = () => {
-  const moment = new Date();
-  const day = WEEK.en[moment.getDay()];
-  const month = YEAR.en[moment.getMonth()];
-  const hour = ('0' + moment.getHours()).slice(-2);
-  const min = ('0' + moment.getMinutes()).slice(-2);
-  dateTime.innerText = `${day} ${moment.getDate()} ${month} ${moment.getFullYear()} ${hour}:${min}`;
+  const here = new Date();
+  const actual = timeZone ? new Date(here.getTime() + here.getTimezoneOffset() * 60000 + timeZone * 1000) : here;
+  const day = WEEK.en[actual.getDay()];
+  const month = YEAR.en[actual.getMonth()];
+  const hour = ('0' + actual.getHours()).slice(-2);
+  const min = ('0' + actual.getMinutes()).slice(-2);
+
+  dateTime.innerText = `${day} ${actual.getDate()} ${month} ${actual.getFullYear()} ${hour}:${min}`;
 }
 
 export default setTime;
