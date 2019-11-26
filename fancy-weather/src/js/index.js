@@ -8,6 +8,7 @@ import { getPlace } from './logic/get-place';
 import { getStorage, setStorage } from './storage';
 import { changeDegrees } from './controls/degrees';
 import { changeLang } from './controls/lang';
+import { searchInput, searchBtn } from './controls/search';
 import { requestWeather } from './request';
 import createWeather from './weather/weather';
 import createCity from './city/city';
@@ -60,6 +61,9 @@ document.addEventListener('click', e => {
       setStorage('lang', 'be');
       changeLang();
       break;
+    case 'search-btn':
+      setStorage('city', searchInput.value);
+      requestWeather(getStorage('lang'), searchInput.value);
     default:
       break;
   }
