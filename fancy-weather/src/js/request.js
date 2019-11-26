@@ -25,14 +25,11 @@ export const requestWeather = async (lang, city) => {
       ];
       const c = placeData.results[0].components.city ? placeData.results[0].components.city : placeData.results[0].components.state;
       setCity(c, placeData.results[0].components.country);
-      console.log(lang, placeData.results[0]);
     }
 
     const weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=${lang}&units=metric&APPID=c09c4ffaf69055257be3ac07f2dcd9cd`;
     const weather = await fetch(weatherUrl);
     const weatherData = await weather.json();
-    // setCity(weatherData.city.name, weatherData.city.country);
-    console.log(weatherData);
 
     timeZone = weatherData.city.timezone;
     setWeather(weatherData.list[0], 'c');

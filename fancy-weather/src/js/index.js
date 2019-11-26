@@ -63,10 +63,11 @@ document.addEventListener('click', e => {
       break;
     case 'search-btn':
       setStorage('city', searchInput.value);
-      requestWeather(getStorage('lang'), searchInput.value);
     default:
       break;
   }
+  requestWeather(getStorage('lang'), searchInput.value);
+  setTime();
 });
 
 setInterval(setTime, 10000);
