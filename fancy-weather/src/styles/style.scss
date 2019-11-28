@@ -1,3 +1,8 @@
+$color-main: #00e676;
+$color-btn: #827717;
+$color-bkg-active: #1b5e20;
+$color-bkg-button: #e6ee9c;
+
 body {
   margin: 0;
   padding: 0;
@@ -44,11 +49,11 @@ body {
   justify-content: center;
   align-items: center;
   margin: 5px;
-  color: #827717;
+  color: $color-btn;
   border: 0;
   outline: 0;
   border-radius: 50%;
-  background-color: #e6ee9c;
+  background-color: $color-bkg-button;
   cursor: pointer;
 }
 
@@ -58,8 +63,8 @@ body {
 
 .btn.active,
 .btn.active:hover {
-  color: #e6ee9c;
-  background-color: #1b5e20;
+  color: $color-bkg-button;
+  background-color: $color-bkg-active;
   opacity: 1;
 }
 
@@ -86,7 +91,7 @@ input[type="text"] {
   font-size: 42px;
   font-weight: bold;
   text-transform: uppercase;
-  color: #00e676;
+  color: $color-main;
 }
 
 .date-time {
@@ -97,15 +102,14 @@ input[type="text"] {
   align-items: center;
   font-size: 24px;
   font-weight: bold;
-  // text-transform: uppercase;
-  color: #00e676;
+  color: $color-main;
 }
 
 .main {
   width: 100%;
   display: flex;
   flex-direction: column;
-  color: #00e676;
+  color: $color-main;
 }
 
 .today-container {
