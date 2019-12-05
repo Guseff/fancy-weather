@@ -108,7 +108,6 @@ input[type="text"] {
 .main {
   width: 100%;
   display: flex;
-  flex-direction: column;
   color: $color-main;
 }
 
@@ -136,3 +135,25 @@ input[type="text"] {
   font-size: 26px;
   line-height: 48px;
 }
+
+.next-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.next-block {
+  width: 100%;  
+}
+
+.next-day {
+  text-transform: uppercase;
+}
+
+.next-temp {
+  font-size: 24px;
+}
+
+.next-icon {
+  width: 48px;
+}
+
