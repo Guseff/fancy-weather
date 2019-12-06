@@ -5,7 +5,8 @@ import createNextArray from './next';
 const createWeather = () => {
   const today = createToday();
   const next = createNextArray();
-  const weather = createDiv('main');
+ 
+  const weather = createDiv('main-weather');
 
   weather.append(today, next);
 

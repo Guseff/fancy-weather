@@ -10,10 +10,10 @@ import { changeDegrees } from './controls/degrees';
 import { changeLang } from './controls/lang';
 import { searchInput, searchBtn } from './controls/search';
 import { requestWeather } from './request';
-import createWeather from './weather/weather';
 import createCity from './city/city';
 import createDateTime from './city/date-time';
 import setTime from './logic/time';
+import createMain from './main';
 
 export let timeZone;
 
@@ -28,9 +28,10 @@ header.append(search, controls);
 export const city = createCity();
 export const dateTime = createDateTime();
 setTime();
-const weather = createWeather();
 
-wrapper.append(header, city, dateTime, weather);
+const main = createMain();
+
+wrapper.append(header, city, dateTime, main);
 
 refreshMainBkg('rain');
 
