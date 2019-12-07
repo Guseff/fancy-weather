@@ -26,6 +26,7 @@ export const requestWeather = async (lang, city) => {
       const cityUrl =`https://api.opencagedata.com/geocode/v1/json?q=${city}&language=${lang}&key=${CITY_KEY}`;
       const place = await fetch(cityUrl);
       const placeData = await place.json();
+      console.log(placeData);
       [lat, lon] = [
         placeData.results[0].geometry.lat,
         placeData.results[0].geometry.lng

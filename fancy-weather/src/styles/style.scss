@@ -91,7 +91,7 @@ input[type="text"] {
   display: flex;
   justify-content: center;
   align-items: flex-end; 
-  font-size: 72px;
+  font-size: 60px;
   font-weight: bold;
   text-transform: uppercase;
   color: $color-main;
@@ -104,7 +104,7 @@ input[type="text"] {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 64px;
+  font-size: 48px;
   font-weight: bold;
   color: $color-main;
 }
@@ -119,8 +119,9 @@ input[type="text"] {
   width: 50%;
 }
 
-.main-map {
+.map {
   width: 50%;
+  margin: 25px;
 }
 
 .today-container {
@@ -139,7 +140,7 @@ input[type="text"] {
 }
 
 .today-temp {
-  font-size: 25vh;
+  font-size: 278px;
   text-align: center;
 }
 
@@ -178,3 +179,7 @@ input[type="text"] {
   width: 72px;
 }
 
+.map-body {
+  width: 80%;
+  height: 70%;
+}
