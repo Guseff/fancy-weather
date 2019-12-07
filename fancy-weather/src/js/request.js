@@ -6,6 +6,7 @@ import {
 import setCity from './logic/set-city';
 import setWeather from './logic/set-weather';
 import setNextWeather from './logic/set-next-weather';
+import { setMapCenter } from './map/map';
 import { getStorage, setStorage } from './storage';
 import { searchInput } from './controls/search';
 
@@ -26,7 +27,7 @@ export const requestWeather = async (lang, city) => {
       const cityUrl =`https://api.opencagedata.com/geocode/v1/json?q=${city}&language=${lang}&key=${CITY_KEY}`;
       const place = await fetch(cityUrl);
       const placeData = await place.json();
-      console.log(placeData);
+      // console.log(placeData);
       [lat, lon] = [
         placeData.results[0].geometry.lat,
         placeData.results[0].geometry.lng
@@ -34,7 +35,8 @@ export const requestWeather = async (lang, city) => {
       const c = placeData.results[0].components.city ? placeData.results[0].components.city : placeData.results[0].components.state;
       setCity(c, placeData.results[0].components.country);
     }
-
+    setMapCenter(lon, lat);
+    
     const weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=${lang}&units=metric&APPID=${WEATHER_APPID}`;
     const weather = await fetch(weatherUrl);
     const weatherData = await weather.json();
