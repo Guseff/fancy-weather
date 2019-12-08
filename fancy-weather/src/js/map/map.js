@@ -15,7 +15,7 @@ const map = new mapboxgl.Map({
 const createMap = () => {
   map.once('load', () => {
     // Waiting for other components to be rendered
-    map.resize();
+    setTimeout(() => map.resize(), 300);
   })
   
   return mapContainer;
@@ -25,9 +25,6 @@ const marker = createDiv('marker');
 
 export const setMapCenter = (x, y) => {
   map.flyTo({center: [x, y]});
-  new mapboxgl.Marker(marker)
-    .setLngLat([x, y])
-    .addTo(map);
 } 
 
 export default createMap;

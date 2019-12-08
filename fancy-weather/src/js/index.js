@@ -71,4 +71,13 @@ document.addEventListener('click', e => {
   setTime();
 });
 
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Enter' || searchInput.value === '') {
+    return;
+  }
+  setStorage('city', searchInput.value);
+  requestWeather(getStorage('lang'), searchInput.value);
+  setTime();
+})
+
 setInterval(setTime, 10000);
