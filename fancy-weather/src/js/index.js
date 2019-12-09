@@ -34,8 +34,7 @@ const main = createMain();
 wrapper.append(header, city, dateTime, main);
 
 refreshMainBkg('rain');
-
-requestWeather('en');
+requestWeather('en', '');
 
 document.addEventListener('click', e => {
   switch (e.target.id) {

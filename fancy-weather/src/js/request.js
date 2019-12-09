@@ -23,21 +23,28 @@ export const requestWeather = async (lang, city) => {
 
       [lat, lon] = placeData.loc.split(',');
       setCity(placeData.city, placeData.country);
+      setStorage('lon', lon);
+      setStorage('lat', lat);
     } else {
       const cityUrl =`https://api.opencagedata.com/geocode/v1/json?q=${city}&language=${lang}&key=${CITY_KEY}`;
       const place = await fetch(cityUrl);
       const placeData = await place.json();
-      // console.log(placeData);
-      [lat, lon] = [
-        placeData.results[0].geometry.lat,
-        placeData.results[0].geometry.lng
-      ];
-      const c = placeData.results[0].components.city ? placeData.results[0].components.city : placeData.results[0].components.state;
-      setCity(c, placeData.results[0].components.country);
+      if (placeData.results.length > 0) {
+        [lat, lon] = [
+          placeData.results[0].geometry.lat,
+          placeData.results[0].geometry.lng
+        ];
+        const c = placeData.results[0].components.city ? placeData.results[0].components.city : placeData.results[0].components.state;
+        setCity(c, placeData.results[0].components.country);
+        setStorage('lon', lon);
+        setStorage('lat', lat);
+        setMapCenter(lon, lat);
+      } else {
+        console.log('No such city...');
+      }
     }
-    setMapCenter(lon, lat);
     
-    const weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=${lang}&units=metric&APPID=${WEATHER_APPID}`;
+    const weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${getStorage('lat')}&lon=${getStorage('lon')}&lang=${lang}&units=metric&APPID=${WEATHER_APPID}`;
     const weather = await fetch(weatherUrl);
     const weatherData = await weather.json();
 

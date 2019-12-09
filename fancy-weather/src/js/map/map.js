@@ -1,6 +1,7 @@
 import { MAPBOX_TOKEN } from '../constants/keys';
 import createDiv from '../div';
 import mapboxgl from 'mapbox-gl';
+import { getStorage } from '../storage';
 
 const mapContainer = createDiv('map');
 mapboxgl.accessToken = MAPBOX_TOKEN;
@@ -12,19 +13,20 @@ const map = new mapboxgl.Map({
   zoom: 8
 });
 
+export const setMapCenter = (x, y) => {
+  map.flyTo({center: [x, y]});
+} 
+
 const createMap = () => {
   map.once('load', () => {
     // Waiting for other components to be rendered
-    setTimeout(() => map.resize(), 300);
+    setTimeout(() => {
+      map.resize();
+      setMapCenter(getStorage('lon'), getStorage('lat'));
+    }, 300);
   })
   
   return mapContainer;
 }
-
-const marker = createDiv('marker');
-
-export const setMapCenter = (x, y) => {
-  map.flyTo({center: [x, y]});
-} 
 
 export default createMap;
