@@ -1,4 +1,4 @@
-import { getStorage } from '../storage'
+import { getStorage } from '../storage';
 
 import ruJson from './ru.json';
 import enJson from './en.json';
@@ -10,10 +10,10 @@ const LANGS = {
   be: beJson,
 }
 
-const translate = (key) => {
-  const lang = getStorage('lang')
+const translate = (key) => {  
+  const lang = getStorage('lang');
 
-  return LANGS[lang][key]
+  return LANGS[lang][key];
 }
 
-export default translate
+export default translate;

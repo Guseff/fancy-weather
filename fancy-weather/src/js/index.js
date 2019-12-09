@@ -66,7 +66,7 @@ document.addEventListener('click', e => {
     default:
       break;
   }
-  requestWeather(getStorage('lang'), searchInput.value);
+  requestWeather(getStorage('lang'), getStorage('city'));
   setTime();
 });
 

@@ -27,12 +27,20 @@ export const requestWeather = async (lang, city) => {
       const cityUrl =`https://api.opencagedata.com/geocode/v1/json?q=${city}&language=${lang}&key=${CITY_KEY}`;
       const place = await fetch(cityUrl);
       const placeData = await place.json();
+      
       if (placeData.results.length > 0) {
         [lat, lon] = [
           placeData.results[0].geometry.lat,
           placeData.results[0].geometry.lng
         ];
-        const c = placeData.results[0].components.city ? placeData.results[0].components.city : placeData.results[0].components.state;
+        let c = placeData.results[0].components;
+        if (c.city) {
+          c = c.city;
+        } else if (c.county) {
+          c = c.county;
+        } else {
+          c = c.state;
+        }
         setCityRequestResult(c, placeData.results[0].components.country, lon, lat);
         setMapCenter(lon, lat);
       } else {
