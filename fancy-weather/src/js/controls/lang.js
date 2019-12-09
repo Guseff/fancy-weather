@@ -9,9 +9,8 @@ export const [enBtn, ruBtn, beBtn] =
 ];
 
 export const changeLang = () => {
-  ruBtn.classList.remove('active');
-  beBtn.classList.remove('active');
-  enBtn.classList.remove('active');
+  [ruBtn, beBtn, enBtn].forEach(x => x.classList.remove('active'));
+  
   switch (STORAGE.lang) {
     case 'ru': 
       ruBtn.classList.add('active');

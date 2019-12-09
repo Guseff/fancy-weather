@@ -8,7 +8,7 @@ import setWeather from './logic/set-weather';
 import setNextWeather from './logic/set-next-weather';
 import { setMapCenter } from './map/map';
 import { getStorage, setStorage } from './storage';
-import { searchInput } from './controls/search';
+import setCityRequestResult from './logic/set-city-request-result';
 
 export let timeZone;
 
@@ -22,9 +22,7 @@ export const requestWeather = async (lang, city) => {
       const placeData = await place.json();
 
       [lat, lon] = placeData.loc.split(',');
-      setCity(placeData.city, placeData.country);
-      setStorage('lon', lon);
-      setStorage('lat', lat);
+      setCityRequestResult(placeData.city, placeData.country, lon, lat);
     } else {
       const cityUrl =`https://api.opencagedata.com/geocode/v1/json?q=${city}&language=${lang}&key=${CITY_KEY}`;
       const place = await fetch(cityUrl);
@@ -35,9 +33,7 @@ export const requestWeather = async (lang, city) => {
           placeData.results[0].geometry.lng
         ];
         const c = placeData.results[0].components.city ? placeData.results[0].components.city : placeData.results[0].components.state;
-        setCity(c, placeData.results[0].components.country);
-        setStorage('lon', lon);
-        setStorage('lat', lat);
+        setCityRequestResult(c, placeData.results[0].components.country, lon, lat);
         setMapCenter(lon, lat);
       } else {
         console.log('No such city...');
