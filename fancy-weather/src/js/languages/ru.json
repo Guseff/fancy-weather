@@ -18,7 +18,8 @@
   "com.month.9": "октября",
   "com.month.10": "ноября",
   "com.month.11": "декабря",
-  "com.wind": "Ветер",
-  "com.humidity": "Влажность",
-  "com.feels": "Ощущается"
+  "com.weather.wind": "Ветер",
+  "com.weather.humidity": "Влажность",
+  "com.weather.feels": "Ощущается",
+  "com.weather.ms": "м/с"
 }

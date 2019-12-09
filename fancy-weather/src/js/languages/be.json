@@ -18,7 +18,8 @@
   "com.month.9": "кастрычніка",
   "com.month.10": "лістапада",
   "com.month.11": "снежня",
-  "com.wind": "Вецер",
-  "com.humidity": "Вільготнасць",
-  "com.feels": "Адчуваецца"
+  "com.weather.wind": "Вецер",
+  "com.weather.humidity": "Вільготнасць",
+  "com.weather.feels": "Адчуваецца",
+  "com.weather.ms": "м/с"
 }

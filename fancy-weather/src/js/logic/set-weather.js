@@ -9,9 +9,9 @@ const setWeather = (obj, degrees) => {
   nowWeather.todayTemp.innerText = tempString;
   nowWeather.todayIcon.src = `http://openweathermap.org/img/wn/${obj.weather[0].icon}@2x.png`;
   nowWeather.todaySummary.innerText = obj.weather[0].description;
-  nowWeather.todayApparent.innerText = `${translate('com.feels')}: ${tempString}`;
-  nowWeather.todayWind.innerText = `${translate('com.wind')}: ${obj.wind.speed} m/s`;
-  nowWeather.todayHumidity.innerText = `${translate('com.humidity')}: ${obj.main.humidity}%`
+  nowWeather.todayApparent.innerText = `${translate('com.weather.feels')}: ${tempString}`;
+  nowWeather.todayWind.innerText = `${translate('com.weather.wind')}: ${obj.wind.speed} ${translate('com.weather.ms')}`;
+  nowWeather.todayHumidity.innerText = `${translate('com.weather.humidity')}: ${obj.main.humidity}%`
 }
 
 export default setWeather;

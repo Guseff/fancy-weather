@@ -18,7 +18,8 @@
   "com.month.9": "October",
   "com.month.10": "November",
   "com.month.11": "December",
-  "com.wind": "Wind",
-  "com.humidity": "Humidity",
-  "com.feels": "Feels like"
+  "com.weather.wind": "Wind",
+  "com.weather.humidity": "Humidity",
+  "com.weather.feels": "Feels like",
+  "com.weather.ms": "m/s"
 }
