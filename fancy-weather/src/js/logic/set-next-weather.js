@@ -1,8 +1,10 @@
 import { nextArr } from '../weather/next';
 import translate from '../languages';
 import getFahrenheit from '../logic/fahrenheit';
+import { getStorage } from '../storage';
 
-const setNextWeather = (arr, degrees) => {
+const setNextWeather = (arr) => {
+  const degrees = getStorage('degrees');
   nextArr.forEach((el, i) => {
     const tt = degrees === 'c' ? '' + Math.round(arr[(i + 1) * 8].main.temp) : '' + Math.round(getFahrenheit(arr[(i + 1) * 8].main.temp));
     const tempString = (tt[0] === '0' || tt[0] === '-') ? `${tt}°`: `+${tt}°`;

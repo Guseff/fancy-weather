@@ -1,4 +1,4 @@
-import { timeZone } from '../request';
+import { timeZone } from '../requests/request';
 import { dateTime } from '../index';
 import { getStorage } from '../storage';
 

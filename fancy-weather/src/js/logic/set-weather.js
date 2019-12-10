@@ -2,8 +2,10 @@ import { nowWeather } from '../weather/today';
 import translate from '../languages';
 import getFahrenheit from '../logic/fahrenheit';
 import getApparent from '../logic/apparent';
+import { getStorage } from '../storage';
 
-const setWeather = (obj, degrees) => {
+const setWeather = (obj) => {
+  const degrees = getStorage('degrees');
   const tt = degrees === 'c' ? '' + Math.round(obj.main.temp) : '' + Math.round(getFahrenheit(obj.main.temp));
   const appTT = getApparent(obj.main.temp, obj.main.humidity, obj.wind.speed);
   const apparent = degrees === 'c' ? '' + Math.round(appTT) : '' + Math.round(getFahrenheit(appTT));

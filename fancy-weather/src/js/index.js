@@ -9,7 +9,7 @@ import { getStorage, setStorage } from './storage';
 import { changeDegrees } from './controls/degrees';
 import { changeLang } from './controls/lang';
 import { searchInput, searchBtn } from './controls/search';
-import { requestWeather } from './request';
+import requestAll from './requests/request';
 import createCity from './city/city';
 import createDateTime from './city/date-time';
 import setTime from './logic/time';
@@ -34,7 +34,7 @@ const main = createMain();
 wrapper.append(header, city, dateTime, main);
 
 refreshMainBkg('rain');
-requestWeather('en', '');
+requestAll();
 
 document.addEventListener('click', e => {
   switch (e.target.id) {
@@ -66,7 +66,7 @@ document.addEventListener('click', e => {
     default:
       break;
   }
-  requestWeather(getStorage('lang'), getStorage('city'));
+  // requestAll(getStorage('city'));
   setTime();
 });
 
@@ -75,7 +75,7 @@ document.addEventListener('keydown', (e) => {
     return;
   }
   setStorage('city', searchInput.value);
-  requestWeather(getStorage('lang'), searchInput.value);
+  requestAll(searchInput.value);
   setTime();
 })
 
