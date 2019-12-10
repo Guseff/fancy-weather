@@ -1,9 +1,10 @@
 import { nextArr } from '../weather/next';
 import translate from '../languages';
+import getFahrenheit from '../logic/fahrenheit';
 
 const setNextWeather = (arr, degrees) => {
   nextArr.forEach((el, i) => {
-    const tt = '' + Math.round(arr[(i + 1) * 8].main.temp);
+    const tt = degrees === 'c' ? '' + Math.round(arr[(i + 1) * 8].main.temp) : '' + Math.round(getFahrenheit(arr[(i + 1) * 8].main.temp));
     const tempString = (tt[0] === '0' || tt[0] === '-') ? `${tt}°`: `+${tt}°`;
     const day = new Date(arr[(i + 1) * 8].dt * 1000);
     

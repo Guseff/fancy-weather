@@ -53,8 +53,8 @@ export const requestWeather = async (lang, city) => {
     const weatherData = await weather.json();
 
     timeZone = weatherData.city.timezone;
-    setWeather(weatherData.list[0], 'c');
-    setNextWeather(weatherData.list, 'c');
+    setWeather(weatherData.list[0], getStorage('degrees'));
+    setNextWeather(weatherData.list, getStorage('degrees'));
     
   } catch (err) {
     console.log('error ', err);
