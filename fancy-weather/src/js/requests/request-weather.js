@@ -4,10 +4,9 @@ import {
 import { getStorage } from '../storage';
 
 const requestWeather = async () => {
-  const weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${getStorage('lat')}&lon=${getStorage('lon')}&lang=${getStorage('lang')}&units=metric&APPID=${WEATHER_APPID}`;
+  const weatherUrl = `http://api.openweathermap.org/data/2.5/forecast?lat=${getStorage('lat')}&lon=${getStorage('lon')}&lang='en'&units=metric&APPID=${WEATHER_APPID}`;
   const weather = await fetch(weatherUrl);
   const weatherData = await weather.json();
-  console.log(weatherData);
   return weatherData;
 }
 

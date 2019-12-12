@@ -4,7 +4,6 @@ import createHeader from './header';
 import createControls from './controls/controls';
 import createSearch from './controls/search';
 import { refreshMainBkg } from './logic/background';
-import { getPlace } from './logic/get-place';
 import { getStorage, setStorage } from './storage';
 import { changeDegrees } from './controls/degrees';
 import { changeLang } from './controls/lang';
@@ -34,13 +33,13 @@ const main = createMain();
 
 wrapper.append(header, city, dateTime, main);
 
-refreshMainBkg('rain');
 requestAll();
+refreshMainBkg('rain');
 
 document.addEventListener('click', e => {
   switch (e.target.id) {
     case 're-btn':
-      refreshMainBkg('Minsk');     
+      refreshMainBkg(getStorage('city'));     
       break;
     case 'c-btn':
       setStorage('degrees', 'c');
@@ -64,6 +63,7 @@ document.addEventListener('click', e => {
       break;
     case 'search-btn':
       setStorage('city', searchInput.value);
+      refreshMainBkg(getStorage('city')); 
     default:
       break;
   }
@@ -76,6 +76,7 @@ document.addEventListener('keydown', (e) => {
     return;
   }
   setStorage('city', searchInput.value);
+  refreshMainBkg(getStorage('city')); 
   requestAll(searchInput.value);
   setTime();
 })

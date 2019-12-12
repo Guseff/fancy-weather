@@ -15,13 +15,11 @@ const requestCity = async (city) => {
       const ipUrl = `http://ipinfo.io?lang=${getStorage('lang')}&token=${IP_TOKEN}`;
       const place = await fetch(ipUrl);
       const placeData = await place.json();
-      console.log(placeData);
       [lat, lon] = placeData.loc.split(',');
       setCityRequestResult(placeData.city, placeData.country, lon, lat);
     } 
     const region = !city ? `${getStorage('city')} ${getStorage('country')}` : city;
     const cityUrl =`https://api.opencagedata.com/geocode/v1/json?q=${region}&language=${getStorage('lang')}&key=${CITY_KEY}`;
-    console.log(cityUrl);
     const place = await fetch(cityUrl);
     const placeData = await place.json();
     
@@ -38,7 +36,6 @@ const requestCity = async (city) => {
       } else {
         c = c.state;
       }
-      console.log(c, placeData.results[0].components.country);
 
       setCityRequestResult(c, placeData.results[0].components.country, lon, lat);
       setCity(c, placeData.results[0].components.country);
