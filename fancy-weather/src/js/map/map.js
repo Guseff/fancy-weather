@@ -10,8 +10,12 @@ const map = new mapboxgl.Map({
   width: '100%',
   container: mapContainer,
   style: 'mapbox://styles/mapbox/outdoors-v11',
-  zoom: 8
+  zoom: 10
 });
+
+export const resizeMap = () => {
+  map.resize();
+}
 
 export const setMapCenter = (x, y) => {
   map.flyTo({center: [x, y]});

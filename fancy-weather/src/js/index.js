@@ -14,6 +14,7 @@ import createCity from './city/city';
 import createDateTime from './city/date-time';
 import setTime from './logic/time';
 import createMain from './main';
+import resizeMap from './map/map';
 
 export let timeZone;
 
@@ -79,6 +80,10 @@ document.addEventListener('keydown', (e) => {
   refreshMainBkg(getStorage('city')); 
   requestAll(searchInput.value);
   setTime();
+})
+
+document.addEventListener('resize', (e) => {
+  resizeMap();
 })
 
 setInterval(setTime, 10000);

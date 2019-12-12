@@ -5,7 +5,7 @@ import createWeather from './weather/weather';
 const createMain = () => {
   const main = createDiv('main');
   const weather = createWeather();
-  const mapBox = createMap([-122.0, 37.0]);
+  const mapBox = createMap();
   main.append(weather, mapBox);
 
   return main;
