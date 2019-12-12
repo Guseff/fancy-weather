@@ -10,6 +10,7 @@ import { changeDegrees } from './controls/degrees';
 import { changeLang } from './controls/lang';
 import { searchInput, searchBtn } from './controls/search';
 import requestAll from './requests/request';
+import requestWeather from './requests/request-weather';
 import createCity from './city/city';
 import createDateTime from './city/date-time';
 import setTime from './logic/time';
@@ -66,7 +67,7 @@ document.addEventListener('click', e => {
     default:
       break;
   }
-  // requestAll(getStorage('city'));
+  requestAll(searchInput.value);
   setTime();
 });
 
