@@ -7,14 +7,12 @@ import { refreshMainBkg } from './logic/background';
 import { getStorage, setStorage } from './storage';
 import { changeDegrees } from './controls/degrees';
 import { changeLang } from './controls/lang';
-import { searchInput, searchBtn } from './controls/search';
+import { searchInput } from './controls/search';
 import requestAll from './requests/request';
-import requestWeather from './requests/request-weather';
 import createCity from './city/city';
 import createDateTime from './city/date-time';
 import setTime from './logic/time';
 import createMain from './main';
-import resizeMap from './map/map';
 
 export let timeZone;
 
@@ -64,7 +62,8 @@ document.addEventListener('click', e => {
       break;
     case 'search-btn':
       setStorage('city', searchInput.value);
-      refreshMainBkg(getStorage('city')); 
+      refreshMainBkg(getStorage('city'));
+      break;
     default:
       break;
   }
@@ -80,10 +79,6 @@ document.addEventListener('keydown', (e) => {
   refreshMainBkg(getStorage('city')); 
   requestAll(searchInput.value);
   setTime();
-})
-
-document.addEventListener('resize', (e) => {
-  resizeMap();
 })
 
 setInterval(setTime, 10000);

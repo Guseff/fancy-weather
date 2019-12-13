@@ -1,5 +1,5 @@
-import getApparent from '../js/logic/apparent.js';
-import getFahrenheit from '../js/logic/fahrenheit';
+import getApparent from '../src/js/logic/apparent.js';
+import getFahrenheit from '../src/js/logic/fahrenheit';
 
 test('calculates an apparent air temperature when 0*C, wind 3 m/s and 50% humidity ', () => {
   expect(getApparent(0, 50, 3)).toBeLessThan(0);

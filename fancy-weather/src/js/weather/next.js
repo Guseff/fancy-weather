@@ -13,7 +13,7 @@ const createNext = () => {
 }
 
 const a = new Array(3);
-export const nextArr = a.fill(0).map((x) => createNext());
+export const nextArr = a.fill(0).map(() => createNext());
 
 const createNextArray = () => {
   const arr = createDiv('next-container');

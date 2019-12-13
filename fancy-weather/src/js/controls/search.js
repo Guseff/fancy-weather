@@ -1,7 +1,8 @@
 import createButton from './button';
 
 const input = document.createElement('input');
-input.setAttribute("type", "text");
+input.setAttribute('type', 'text');
+input.setAttribute('x-webkit-speech', 'true');
 
 export const [searchInput, searchBtn] = 
 [

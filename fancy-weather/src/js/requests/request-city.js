@@ -7,7 +7,7 @@ import { setMapCenter } from '../map/map';
 import { setLonLat } from '../map/lon-lat';
 import setCity from '../logic/set-city';
 import setCityRequestResult from '../logic/set-city-request-result';
-import { getStorage, setStorage } from '../storage';
+import { getStorage } from '../storage';
 
 const requestCity = async (city) => {
   try {

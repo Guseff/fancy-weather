@@ -1,6 +1,4 @@
 import createDiv from '../div';
-import { getStorage } from '../storage';
-
 
 const lanLot = createDiv('lon-lat');
 
