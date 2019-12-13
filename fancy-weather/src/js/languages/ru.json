@@ -76,5 +76,7 @@
   "com.weather.801": "мало облаков",
   "com.weather.802": "рассеянные облака",
   "com.weather.803": "тучи",
-  "com.weather.804": "облачно"
+  "com.weather.804": "облачно",
+  "com.map.latitude": "Широта",
+  "com.map.longitude": "долгота"
 }

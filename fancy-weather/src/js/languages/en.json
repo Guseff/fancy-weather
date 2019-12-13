@@ -76,5 +76,7 @@
   "com.weather.801": "few clouds",
   "com.weather.802": "scattered clouds",
   "com.weather.803": "broken clouds",
-  "com.weather.804": "overcast clouds"
+  "com.weather.804": "overcast clouds",
+  "com.map.latitude": "Latitude",
+  "com.map.longitude": "longitude"
 }

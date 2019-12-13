@@ -1,4 +1,5 @@
 import createDiv from '../div';
+import translate from '../languages';
 
 const lanLot = createDiv('lon-lat');
 
@@ -7,7 +8,7 @@ const createLanLot = () => {
 }
 
 export const setLonLat = (lon, lat) => {
-  lanLot.innerHTML = `Latitude: ${lat}, longitude: ${lon}.`;
+  lanLot.innerHTML = `${translate('com.map.latitude')}: ${lat}, ${translate('com.map.longitude')}: ${lon}.`;
 }
 
 export default createLanLot;

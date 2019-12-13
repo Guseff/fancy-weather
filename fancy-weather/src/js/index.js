@@ -13,8 +13,10 @@ import createCity from './city/city';
 import createDateTime from './city/date-time';
 import setTime from './logic/time';
 import createMain from './main';
+import { loadSettings, saveSettings } from './controls/settings';
 
 export let timeZone;
+loadSettings();
 
 const wrapper = createWrapper();
 document.body.appendChild(wrapper);
@@ -79,6 +81,10 @@ document.addEventListener('keydown', (e) => {
   refreshMainBkg(getStorage('city')); 
   requestAll(searchInput.value);
   setTime();
-})
+});
+
+window.addEventListener('beforeunload', () => {
+  saveSettings();
+});
 
 setInterval(setTime, 10000);
