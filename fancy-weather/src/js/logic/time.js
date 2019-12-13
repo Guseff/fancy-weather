@@ -1,7 +1,6 @@
 import { timeZone } from '../requests/request';
 import { dateTime } from '../index';
 import translate from '../languages';
-import { setStorage } from '../storage';
 
 const setTime = () => {
   const here = new Date();
@@ -15,13 +14,13 @@ const setTime = () => {
   dateTime.innerText = `${day} ${actual.getDate()} ${month} ${actual.getFullYear()} ${hour}:${min}`;
 
   if (monthNumber === 1 || monthNumber === 0 || monthNumber === 11) {
-    setStorage('season', 'winter');
+    sessionStorage.setItem('season', 'winter');
   } else if (monthNumber === 2 || monthNumber === 3 || monthNumber === 4) {
-    setStorage('season', 'spring');
+    sessionStorage.setItem('season', 'spring');
   } else if (monthNumber === 5 || monthNumber === 6 || monthNumber === 7) {
-    setStorage('season', 'summer');
+    sessionStorage.setItem('season', 'summer');
   } else {
-    setStorage('season', 'autumn');
+    sessionStorage.setItem('season', 'autumn');
   }
 }
 
