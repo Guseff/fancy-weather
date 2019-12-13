@@ -28,13 +28,13 @@ header.append(search, controls);
 
 export const city = createCity();
 export const dateTime = createDateTime();
+
 setTime();
+requestAll();
 
 const main = createMain();
-
 wrapper.append(header, city, dateTime, main);
 
-requestAll();
 refreshMainBkg('rain');
 
 document.addEventListener('click', e => {

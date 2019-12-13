@@ -4,6 +4,7 @@ import {
 } from '../constants/keys';
 
 import { setMapCenter } from '../map/map';
+import { setLonLat } from '../map/lon-lat';
 import setCity from '../logic/set-city';
 import setCityRequestResult from '../logic/set-city-request-result';
 import { getStorage, setStorage } from '../storage';
@@ -39,6 +40,7 @@ const requestCity = async (city) => {
 
       setCityRequestResult(c, placeData.results[0].components.country, lon, lat);
       setCity(c, placeData.results[0].components.country);
+      setLonLat(lon, lat);
       setMapCenter(lon, lat);
     } else {
       console.log('No such city...');

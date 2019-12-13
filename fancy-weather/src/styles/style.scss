@@ -183,16 +183,34 @@ input[type="text"] {
   }
 }
 
-.map {
+.main-map {
   @media (min-width: 1441px) {
     width: 50%;
-    height: calc(100vh - 525px);
+    height: calc(100vh - 380px);
     margin: 25px;
   }
   @media (max-width: 1440px) {
     width: 100%;
-    height: 400px;
+    height: 500px;
     margin: 0;
+  }
+}
+
+.map {
+  width: 100%;
+  height: calc(100% - 100px);
+}
+
+.lon-lat {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold;
+  @media (max-width: 650px) {
+    font-size: 20px;
   }
 }
 
@@ -269,13 +287,3 @@ input[type="text"] {
 .next-icon {
   width: 72px;
 }
-
-.map-body {
-  width: 80%;
-  height: 70%;
-}
- .marker {
-   height: 40px;
-   width: 40px;
-   background: url('../assets/images/marker-40.png');
- }

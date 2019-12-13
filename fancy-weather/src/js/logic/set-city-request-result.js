@@ -1,4 +1,3 @@
-import setCity from './set-city';
 import { setStorage } from '../storage'; 
 
 const setCityRequestResult = (name, country, lon, lat) => {
