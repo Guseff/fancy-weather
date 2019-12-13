@@ -8,7 +8,11 @@ const createLanLot = () => {
 }
 
 export const setLonLat = (lon, lat) => {
-  lanLot.innerHTML = `${translate('com.map.latitude')}: ${lat}, ${translate('com.map.longitude')}: ${lon}.`;
+  const lonGrad = Math.trunc(lon);
+  const lonMin = Math.round((lon - lonGrad) * 60);
+  const latGrad = Math.trunc(lat);
+  const latMin = Math.round((lat - latGrad) * 60);
+  lanLot.innerHTML = `${translate('com.map.latitude')}: ${latGrad}°${latMin}', ${translate('com.map.longitude')}: ${lonGrad}°${lonMin}'.`;
 }
 
 export default createLanLot;
