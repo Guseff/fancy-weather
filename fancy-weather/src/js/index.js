@@ -35,12 +35,12 @@ requestAll();
 const main = createMain();
 wrapper.append(header, city, dateTime, main);
 
-refreshMainBkg('rain');
+refreshMainBkg(`${getStorage('city')},${getStorage('season')}`);
 
 document.addEventListener('click', e => {
   switch (e.target.id) {
     case 're-btn':
-      refreshMainBkg(getStorage('city'));     
+      refreshMainBkg(`${getStorage('city')},${getStorage('season')}`);     
       break;
     case 'c-btn':
       setStorage('degrees', 'c');
@@ -64,7 +64,7 @@ document.addEventListener('click', e => {
       break;
     case 'search-btn':
       setStorage('city', searchInput.value);
-      refreshMainBkg(getStorage('city'));
+      refreshMainBkg(`${getStorage('city')},${getStorage('season')}`);   
       break;
     default:
       break;

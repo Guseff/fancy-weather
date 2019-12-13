@@ -132,7 +132,7 @@ input[type="text"] {
     font-size: 36px;
     height: 70px;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 550px) {
     height: 90px;
     text-align: center;
   }
@@ -155,7 +155,7 @@ input[type="text"] {
   @media (max-width: 650px) {
     font-size: 28px;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 550px) {
     height: 90px;
     line-height: 36px;
     text-align: center;
@@ -255,7 +255,7 @@ input[type="text"] {
 
 .next-container {
   display: flex;
-  @media (max-width: 500px) {
+  @media (max-width: 550px) {
     flex-direction: column;
   }
 }
