@@ -35,12 +35,12 @@ requestAll();
 const main = createMain();
 wrapper.append(header, city, dateTime, main);
 
-refreshMainBkg(`${getStorage('city')},${sessionStorage.getItem('season')}`);
+refreshMainBkg(`${getStorage('city')}+${sessionStorage.getItem('season')}`);
 
 document.addEventListener('click', e => {
   switch (e.target.id) {
     case 're-btn':
-      refreshMainBkg(`${getStorage('city')},${sessionStorage.getItem('season')}`);     
+      refreshMainBkg(`${getStorage('city')}+${sessionStorage.getItem('season')}`);     
       break;
     case 'c-btn':
       setStorage('degrees', 'c');
@@ -64,7 +64,7 @@ document.addEventListener('click', e => {
       break;
     case 'search-btn':
       setStorage('city', searchInput.value);
-      refreshMainBkg(`${getStorage('city')},${sessionStorage.getItem('season')}`);   
+      refreshMainBkg(`${getStorage('city')}+${sessionStorage.getItem('season')}`);   
       break;
     default:
       break;
@@ -78,7 +78,7 @@ document.addEventListener('keydown', (e) => {
     return;
   }
   setStorage('city', searchInput.value);
-  refreshMainBkg(`${getStorage('city')},${sessionStorage.getItem('season')}`);
+  refreshMainBkg(`${getStorage('city')}+${sessionStorage.getItem('season')}`);
   requestAll(searchInput.value);
   setTime();
 });

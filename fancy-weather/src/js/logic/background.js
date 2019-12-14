@@ -4,7 +4,6 @@ const BACKGROUND_IMAGE_URL = (param) => `https://api.unsplash.com/photos/random?
 
 export const refreshMainBkg = async (param) => {
   const url = BACKGROUND_IMAGE_URL(param);
-  console.log(url);
   try {
     const res = await fetch(url);
     const data = await res.json();
