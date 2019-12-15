@@ -9,9 +9,9 @@ const createLanLot = () => {
 
 export const setLonLat = (lon, lat) => {
   const lonGrad = Math.trunc(lon);
-  const lonMin = Math.round((lon - lonGrad) * 60);
+  const lonMin = Math.abs(Math.round((lon - lonGrad) * 60));
   const latGrad = Math.trunc(lat);
-  const latMin = Math.round((lat - latGrad) * 60);
+  const latMin = Math.abs(Math.round((lat - latGrad) * 60));
   lanLot.innerHTML = `${translate('com.map.latitude')}: ${latGrad}°${latMin}', ${translate('com.map.longitude')}: ${lonGrad}°${lonMin}'.`;
 }
 

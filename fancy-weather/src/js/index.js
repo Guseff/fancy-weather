@@ -35,12 +35,15 @@ requestAll();
 const main = createMain();
 wrapper.append(header, city, dateTime, main);
 
-refreshMainBkg(`${getStorage('city')}+${sessionStorage.getItem('season')}`);
+const bkgRequestParamInit = `${sessionStorage.getItem('period')}+${sessionStorage.getItem('weather')}`;
+
+refreshMainBkg(bkgRequestParamInit);
 
 document.addEventListener('click', e => {
+  let bkgRequestParam = `${sessionStorage.getItem('season')}+${sessionStorage.getItem('period')}+${sessionStorage.getItem('weather')}+${getStorage('city')}`;
   switch (e.target.id) {
     case 're-btn':
-      refreshMainBkg(`${getStorage('city')}+${sessionStorage.getItem('season')}`);     
+      refreshMainBkg(bkgRequestParam);     
       break;
     case 'c-btn':
       setStorage('degrees', 'c');
@@ -64,7 +67,8 @@ document.addEventListener('click', e => {
       break;
     case 'search-btn':
       setStorage('city', searchInput.value);
-      refreshMainBkg(`${getStorage('city')}+${sessionStorage.getItem('season')}`);   
+      bkgRequestParam = `${sessionStorage.getItem('season')}+${sessionStorage.getItem('period')}+${sessionStorage.getItem('weather')}+${getStorage('city')}`;
+      refreshMainBkg(bkgRequestParam);   
       break;
     default:
       break;
@@ -78,7 +82,8 @@ document.addEventListener('keydown', (e) => {
     return;
   }
   setStorage('city', searchInput.value);
-  refreshMainBkg(`${getStorage('city')}+${sessionStorage.getItem('season')}`);
+  const bkgRequestParam = `${sessionStorage.getItem('season')}+${sessionStorage.getItem('period')}+${sessionStorage.getItem('weather')}+${getStorage('city')}`;
+  refreshMainBkg(bkgRequestParam);
   requestAll(searchInput.value);
   setTime();
 });

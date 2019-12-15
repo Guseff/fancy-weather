@@ -54,7 +54,7 @@ describe('return DOM element for Date and Time', () => {
   it('return DOM element', () => {
     expect(createDateTime()).toBeInstanceOf(HTMLDivElement);
   });
-  it('return DOM element with id="city"', () => {
+  it('return DOM element with id="date-time"', () => {
     expect(createDateTime().getAttribute('id')).toEqual('date-time');
   });
 });
