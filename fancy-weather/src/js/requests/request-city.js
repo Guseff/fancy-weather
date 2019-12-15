@@ -13,7 +13,7 @@ const requestCity = async (city) => {
   try {
     let lat, lon;
     if (!city) {
-      const ipUrl = `http://ipinfo.io?lang=${getStorage('lang')}&token=${IP_TOKEN}`;
+      const ipUrl = `https://ipinfo.io?lang=${getStorage('lang')}&token=${IP_TOKEN}`;
       const place = await fetch(ipUrl);
       const placeData = await place.json();
       [lat, lon] = placeData.loc.split(',');
